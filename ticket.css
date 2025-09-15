@@ -1,0 +1,82 @@
+body {
+    background: url('./assets/background-desktop.png');
+    color: white;
+
+}
+
+#logo {
+    display: block;
+    margin: 30px auto;
+    transform: scale(0.7);
+}
+
+h1,
+p {
+    text-align: center;
+}
+
+.image-container {
+    width: 400px;
+    height: auto;
+    position: relative; /* allows absolute positioning inside */
+    display: block;
+    margin: 20px auto;
+}
+
+.image-container .ticket {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 14px; /* move text up from bottom */
+    left: 10px; /* move text right from left */
+    color: white;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.2); /* semi-transparent background */
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 5px 10px;
+    
+}
+
+
+.overlay-text img {
+    margin-right: 10px;
+}
+
+#avatar {
+    width: 70px;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+
+#id {
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: -9px;
+    margin-bottom: -25px;
+
+    align-self: flex-end;
+    transform: rotate(90deg)
+}
+
+
+.container {
+  display: flex;
+  align-items: flex-start; /* align top edges */
+}
+
+.container img {
+  margin-right: 15px;
+}
+
+
+.text span {
+  display: block;  /* each text on its own line */
+}

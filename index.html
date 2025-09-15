@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Conference Ticket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <main>
+        <header>
+            <img id="logo" src="./assets/logo-full.svg" alt="Logo">
+        </header>
+        <h1>Your Journey to Coding Conf<br> 2025 Starts Here!</h1>
+        <p>Secure your spot at next year's biggest coding conference.</p>
+        <form action="/submit" method="post">
+            <div class="drop-zone">
+                <img id="icon-upload" src="./assets/icon-upload.svg" alt="upload">
+                <span class="drop-zone__prompt">Drag and drop or click to upload</span>
+                <input type="file" name="myFile" class="drop-zone__input">
+            </div>
+            <div class="info">
+                <img src="./assets/icon-info.svg" alt="info"><span>Upload your photo (JPG or PNG, max size: 500KB)</span>
+            </div>
+            <div>
+                <label for="name">Full Name</label>
+                <input class="type" type="text" id="name">
+            </div>
+            <div>
+                <label for="email">Email Address</label>
+                <input class="type" type="email" id="email" placeholder="example@email.com">
+
+            </div>
+            <div>
+                <label for="username">GitHub Username</label>
+                <input class="type" type="text" id="username" placeholder="@yourusername">
+
+            </div>
+            <button type="button">Generate My Ticket</button>
+        </form>
+
+    </main>
+
+
+</body>
+
+</html>

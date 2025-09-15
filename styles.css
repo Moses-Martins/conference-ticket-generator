@@ -1,0 +1,101 @@
+body {
+    background: url('./assets/background-desktop.png');
+    
+    color: white;
+
+}
+
+#logo {
+    display: block;
+    margin: 30px auto;
+    transform: scale(0.7);
+}
+
+h1,
+p {
+    text-align: center;
+}
+
+form .info {
+    margin-top: -9px;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6)
+}
+
+label {
+    display: block;
+}
+
+form {
+    width: 400px;
+    height: 370px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+
+}
+
+.type {
+    width: 394px;
+    height: 1.4rem;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+span {
+    display: block
+}
+
+#icon-upload {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2)
+}
+
+.drop-zone {
+    width: 345px;
+    height: 80px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: #c9c9c9;
+    border: 2px dashed #c9c9c9;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1)
+}
+
+.drop-zone--over {
+    border-style: solid;
+    border-color: #55a2ff;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+button {
+    display: block;
+    width: 400px;
+    height: 1.8rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+    background-color: hsl(7, 71%, 60%);
+}
