@@ -1,28 +1,24 @@
-document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
-    const dropZoneElement = inputElement.closest(".drop-zone");
+Dropzone.autoDiscover = false; // important!
 
-    dropZoneElement.addEventListener("click", e => {
-        inputElement.click();
-    });
-
-    dropZoneElement.addEventListener("dragover", e => {
-        e.preventDefault();
-        dropZoneElement.classList.add("drop-zone--over");
-    });
-
-    ["dragleave", "dragend"].forEach(type => {
-        dropZoneElement.addEventListener(type, e => {
-            dropZoneElement.classList.remove("drop-zone--over");
+        const myDropzone = new Dropzone("#my-form", {
+            url: "/submit",              // where to send the file (your backend route)
+            clickable: "#custom-drop",   // your custom div triggers the file picker
+            previewsContainer: null,     // don't insert Dropzone previews
+            maxFiles: 1,
+            previewTemplate: "<div></div>",
+            acceptedFiles: "image/*",
+            autoProcessQueue: false      // disable auto-upload unless you want it
         });
-    });
 
-    dropZoneElement.addEventListener("drop", e => {
-        e.preventDefault();
+        // When a file is added
+        myDropzone.on("addedfile", file => {
+            console.log("File added:", file.name);
 
-        if (e.dataTransfer.files.length) {
-            inputElement.files = e.dataTransfer.files;
-        }
-
-        dropZoneElement.classList.remove("drop-zone--over");
-    });
-});
+            // Replace icon with uploaded image preview
+            if (file.type.startsWith("image/")) {
+                const img = document.getElementById("icon-upload");
+                img.src = URL.createObjectURL(file);
+                document.querySelector(".drop-zone__prompt").style.display = "none";
+                
+            }
+        })
