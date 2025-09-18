@@ -1,9 +1,54 @@
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('./fonts/Inconsolata-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
-    background: url('./assets/background-desktop.png');
-    
+    background-image: url('./assets/images/background-desktop.png');
     color: white;
+    background-size: cover;
+    font-family: 'Inconsolata', sans-serif;
 
 }
+
+body::before {
+    content: '';
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    background-image: url('./assets/images/pattern-lines.svg');
+}
+
+
+.squiggly::before {
+    content: '';
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-image: url('./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.squiggly::after {
+    content: '';
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-image: url('./assets/images/pattern-squiggly-line-top.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+body::before,
+.squiggly::before,
+.squiggly::after {
+    pointer-events: none;
+}
+
 
 #logo {
     display: block;
@@ -55,11 +100,17 @@ span {
 }
 
 #icon-upload {
+    width: 30px;
+    height: 30px;
     margin: 10px;
     padding: 5px;
     border: 1px solid grey;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.2)
+}
+
+#dz-previews {
+    color: black;
 }
 
 .drop-zone {
@@ -86,10 +137,6 @@ span {
     border-color: #55a2ff;
 }
 
-.drop-zone__input {
-    display: none;
-}
-
 button {
     display: block;
     width: 400px;
@@ -99,3 +146,113 @@ button {
     font-weight: 700;
     background-color: hsl(7, 71%, 60%);
 }
+
+
+
+#remove {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+#remove:hover {
+    color: #c0392b;
+}
+
+
+@media only screen and (max-width: 750px) {
+    body::before {
+        background-size: cover;
+        /* stretch pattern-lines.svg */
+        background-position: center;
+    }
+
+    .squiggly::before {
+        background-size: 60% auto;
+        /* shrink bottom squiggle */
+        background-position: left bottom;
+    }
+
+    .squiggly::after {
+        background-size: 60% auto;
+        /* shrink top squiggle */
+        background-position: top right;
+    }
+
+    form {
+        height: 400px;
+    }
+
+
+    button {
+        margin-bottom: 50px;
+        flex-shrink: 0;
+    }
+
+
+}
+
+
+
+
+@media only screen and (max-width: 375px) {
+    body {
+        font-size: 11px;
+        background-image: url('./assets/images/background-mobile.png');
+        background-size: cover;
+    }
+
+
+    body::before {
+        background-size: cover;
+        /* stretch pattern-lines.svg */
+        background-position: center;
+    }
+
+    .squiggly::before {
+        background-size: 35% auto;
+        /* shrink bottom squiggle */
+        background-position: left bottom;
+    }
+
+    .squiggly::after {
+        background-size: 60% auto;
+        /* shrink top squiggle */
+        background-position: top right;
+    }
+
+
+
+
+
+    form {
+        width: 300px;
+        height: 400px;
+    }
+
+    .type {
+        width: 294px;
+    }
+
+    span {
+        display: block
+    }
+
+    .drop-zone {
+        width: 245px;
+    }
+
+    button {
+        width: 300px;
+        margin-bottom: 50px;
+        flex-shrink: 0;
+    }
+
+
+
+}
+

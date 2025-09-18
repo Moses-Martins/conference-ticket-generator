@@ -1,8 +1,54 @@
-body {
-    background: url('./assets/background-desktop.png');
-    color: white;
-
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('./fonts/Inconsolata-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
+body {
+    background: url('./assets/images/background-desktop.png');
+    color: white;
+    background-size: cover;
+    font-family: 'Inconsolata', sans-serif;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    background-image: url('./assets/images/pattern-lines.svg');
+}
+
+
+.squiggly::before {
+    content: '';
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-image: url('./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.squiggly::after {
+    content: '';
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-image: url('./assets/images/pattern-squiggly-line-top.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+body::before,
+.squiggly::before,
+.squiggly::after {
+    pointer-events: none;
+}
+
+
+
 
 #logo {
     display: block;
@@ -18,9 +64,10 @@ p {
 .image-container {
     width: 400px;
     height: auto;
-    position: relative; /* allows absolute positioning inside */
+    position: relative;
+    /* allows absolute positioning inside */
     display: block;
-    margin: 20px auto;
+    margin: 70px auto;
 }
 
 .image-container .ticket {
@@ -31,11 +78,12 @@ p {
 
 .overlay-text {
     position: absolute;
-    top: 14px; /* move text up from bottom */
-    left: 10px; /* move text right from left */
+    top: 14px;
+    /* move text up from bottom */
+    left: 10px;
+    /* move text right from left */
     color: white;
     font-size: 20px;
-    background: rgba(0, 0, 0, 0.2); /* semi-transparent background */
     width: 90%;
     height: 80%;
     display: flex;
@@ -43,7 +91,7 @@ p {
     justify-content: space-between;
 
     padding: 5px 10px;
-    
+
 }
 
 
@@ -52,31 +100,179 @@ p {
 }
 
 #avatar {
-    width: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 7px;
     margin-right: 10px;
 }
 
 #id {
-    color: rgba(255, 255, 255, 0.7);
-    margin-right: -9px;
-    margin-bottom: -25px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-right: -15px;
+    margin-bottom: -3px;
 
     align-self: flex-end;
     transform: rotate(90deg)
 }
 
 
-.container {
-  display: flex;
-  align-items: flex-start; /* align top edges */
+.container1 {
+    display: flex;
+    align-items: flex-start;
+    /* align top edges */
 }
 
-.container img {
-  margin-right: 15px;
+.container1 img {
+    margin-top: 5px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.container2 {
+    display: flex;
+    align-items: flex-start;
+    /* align top edges */
+}
+
+.container2 img {
+    margin-top: 1px;
+    width: 30px;
+    margin-right: 10px;
 }
 
 
 .text span {
-  display: block;  /* each text on its own line */
+    display: block;
+    /* each text on its own line */
+    top: 0
+}
+
+span.date {
+    margin-top: 5px;
+    
+}
+
+
+span.git {
+    margin-top: 2px;
+    width: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+span.user {
+    margin-left: -8px;
+}
+
+
+
+#gen-name {
+    background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+    background-clip: text; /* Firefox */
+    color: transparent; /* fallback */
+}
+
+
+#gen-email {
+    color: hsl(7, 88%, 67%);
+}
+
+
+span.date {
+    font-size: 12px
+}
+
+
+#github {
+    font-size: 14px;
+}
+
+
+.git > img {
+    width: 15px;
+    height: auto;
+}
+
+
+@media only screen and (max-width: 750px) {
+    body::before {
+        background-size: cover;
+        /* stretch pattern-lines.svg */
+        background-position: center;
+    }
+
+    .squiggly::before {
+        background-size: 40% auto;
+        /* shrink bottom squiggle */
+        background-position: left bottom;
+    }
+
+    .squiggly::after {
+        background-size: 60% auto;
+        /* shrink top squiggle */
+        background-position: top right;
+    }
+
+}
+
+
+
+
+@media only screen and (max-width: 375px) {
+    body {
+        font-size: 12px;
+        background-image: url('./assets/images/background-mobile.png');
+        background-size: cover;
+    }
+
+
+    body::before {
+        background-size: cover;
+        /* stretch pattern-lines.svg */
+        background-position: center;
+    }
+
+    .squiggly::before {
+        background-size: 50% auto;
+        /* shrink bottom squiggle */
+        background-position: left bottom;
+    }
+
+    .squiggly::after {
+        background-size: 60% auto;
+        /* shrink top squiggle */
+        background-position: top right;
+    }
+
+    .image-container {
+        width: 300px;
+        height: auto;
+        position: relative;
+        /* allows absolute positioning inside */
+        display: block;
+        margin: 50px auto;
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 14px;
+        /* move text up from bottom */
+        left: 10px;
+        /* move text right from left */
+        color: white;
+        font-size: 16px;
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding: 5px 10px;
+
+    }
+
+
+
+
 }
