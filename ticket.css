@@ -186,6 +186,7 @@ span.date {
 
 #github {
     font-size: 14px;
+    white-space: nowrap;
 }
 
 
